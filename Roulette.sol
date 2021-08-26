@@ -57,16 +57,16 @@ contract Roulette {
             2 - tip opklade(betType) je vazec;
             3 - podtip opklade(number) je vazec;
         */
-        require(msg.value >= 10000000000000000, "Vrednost opklade mora biti veÊa ili jednaka od 10000000000000000 WEI.");   // 1
-        require(betType >= 0 && betType <= 5, "Tip opklade mora biti vaûeÊ.");                                              // 2
-        require(number >= 0 && number <= numberRange[betType], "Podtip opklade mora biti vaûeÊ.");                          // 3
+        require(msg.value >= 10000000000000000, "Vrednost opklade mora biti ve√¶a ili jednaka od 10000000000000000 WEI.");   // 1
+        require(betType >= 0 && betType <= 5, "Tip opklade mora biti va≈æe√¶.");                                              // 2
+        require(number >= 0 && number <= numberRange[betType], "Podtip opklade mora biti va≈æe√¶.");                          // 3
 
         bets.push(Bet({betType: betType, player: msg.sender, number: number, betAmount: msg.value}));
     }
     
     function spinWheel() public {
         // provera da li ima opklada
-        require(bets.length > 0, "Broj opklada mora biti veÊi od 0.");
+        require(bets.length > 0, "Broj opklada mora biti ve√¶i od 0.");
         
         // izracunavanje slucajnog(random) broja
         uint diff = block.difficulty;               // vrednost koja govori koliko je tesko pronaci hesh za trenutni blok
